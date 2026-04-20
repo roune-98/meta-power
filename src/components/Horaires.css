@@ -1,0 +1,228 @@
+.horaires {
+  padding: 120px 0;
+  background: #0B0B0B;
+  overflow: hidden;
+}
+
+.horaires__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.horaires__title-red {
+  color: #E50914;
+}
+
+/* Body layout */
+.horaires__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Table ── */
+.horaires__table-wrap {
+  background: rgba(18, 18, 18, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 9, 20, 0.15);
+}
+
+.horaires__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horaires__table thead tr {
+  background: rgba(229, 9, 20, 0.18);
+}
+
+.horaires__table thead th {
+  padding: 14px 24px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #E50914;
+}
+
+.horaires__table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
+}
+
+.horaires__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.horaires__table tbody tr:hover:not(.horaires__row--closed) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.horaires__row--closed {
+  opacity: 0.45;
+}
+
+.horaires__table td {
+  padding: 16px 24px;
+  font-size: 14px;
+}
+
+.horaires__day {
+  font-weight: 600;
+  color: #FFFFFF;
+  border-left: 3px solid #E50914;
+  padding-left: 20px !important;
+}
+
+.horaires__row--closed .horaires__day {
+  border-left-color: rgba(255, 255, 255, 0.2);
+  color: #666;
+}
+
+.horaires__hours {
+  color: #B3B3B3;
+}
+
+.horaires__row--closed .horaires__hours {
+  color: #555;
+}
+
+/* Status badges */
+.horaires__badge--open {
+  color: #22c55e;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.horaires__badge--closed {
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Note footer */
+.horaires__note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: rgba(229, 9, 20, 0.08);
+  border-top: 1px solid rgba(229, 9, 20, 0.15);
+  font-size: 13px;
+  color: #B3B3B3;
+}
+
+.horaires__note-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.horaires__note-time {
+  color: #E50914;
+  font-weight: 700;
+}
+
+/* ── Slots (right column) ── */
+.horaires__slots-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.horaires__slots {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.horaires__slot {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.horaires__slot:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(28, 28, 28, 0.95);
+}
+
+.horaires__slot--highlight {
+  background: rgba(229, 9, 20, 0.1);
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.horaires__slot--highlight:hover {
+  background: rgba(229, 9, 20, 0.15);
+  border-color: rgba(229, 9, 20, 0.5);
+}
+
+.horaires__slot-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.horaires__slot-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.horaires__slot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.horaires__slot-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+.horaires__slot-hours {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFD700;
+}
+
+.horaires__slot-hours--red {
+  color: #E50914;
+}
+
+.horaires__slot-desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .horaires__container { padding: 0 40px; }
+  .horaires__body { gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .horaires { padding: 80px 0; }
+  .horaires__container { padding: 0 24px; }
+  .horaires__body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
