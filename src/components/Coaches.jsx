@@ -7,8 +7,8 @@ const STARS = '★★★★★';
 const coaches = [
   {
     name: 'MAMADOU DIALLO',
+    initials: 'MD',
     role: 'Coach Force & Musculation',
-    photo: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80',
     experience: '12 ans',
     specialty: 'Hypertrophie, Force Max',
     bio: "Ancien champion national de powerlifting, Mamadou transforme des corps depuis 12 ans. Sa méthode combine science de l'entraînement et motivation extrême pour des résultats garantis.",
@@ -17,8 +17,8 @@ const coaches = [
   },
   {
     name: 'IBRAHIMA KANE',
+    initials: 'IK',
     role: 'Coach Boxe & MMA',
-    photo: 'https://images.unsplash.com/photo-1552072805-1aabed3e61a8?auto=format&fit=crop&w=600&q=80',
     experience: '18 ans',
     specialty: 'Technique, Sparring, Combat',
     bio: 'Ancien boxeur professionnel avec 45 combats au compteur. Ibrahima a formé plusieurs champions régionaux. Son approche est brutalement efficace.',
@@ -27,8 +27,8 @@ const coaches = [
   },
   {
     name: 'FATOU NDIAYE',
+    initials: 'FN',
     role: 'Coach Fitness & Nutrition',
-    photo: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80',
     experience: '8 ans',
     specialty: 'Perte de poids, Cardio, Nutrition',
     bio: 'Nutritionniste certifiée et coach fitness, Fatou personnalise chaque programme selon votre métabolisme et vos objectifs.',
@@ -52,12 +52,9 @@ function CoachCard({ coach, index }) {
     >
       <div className={`coach__avatar coach__avatar--${coach.color}`}>
         <div className="coach__avatar-inner">
-          <img
-            src={coach.photo}
-            alt={coach.name}
-            className="coach__photo"
-            loading="lazy"
-          />
+          <div className={`coach__initials coach__initials--${coach.color}`}>
+            {coach.initials}
+          </div>
         </div>
         <div className={`coach__ring coach__ring--${coach.color}`} />
         <div className={`coach__ring coach__ring--${coach.color} coach__ring--2`} />
