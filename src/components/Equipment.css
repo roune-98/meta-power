@@ -1,0 +1,161 @@
+.equipment {
+  padding: 120px 0;
+  background: #121212;
+  overflow: hidden;
+}
+
+.equipment__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+/* Filter buttons */
+.equipment__filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.equipment__filter-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: #B3B3B3;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.equipment__filter-btn:hover {
+  border-color: rgba(255, 215, 0, 0.4);
+  color: #FFD700;
+}
+
+.equipment__filter-btn--active {
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  border-color: transparent;
+  color: #0B0B0B;
+  font-weight: 700;
+}
+
+/* Grid */
+.equipment__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+/* Card */
+.equipment__card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: #1a1a1a;
+}
+
+/* Image */
+.equipment__img-wrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.equipment__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay */
+.equipment__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.equipment__card:hover .equipment__gradient {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.6) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+/* Info overlay */
+.equipment__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.equipment__category {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFD700;
+}
+
+.equipment__name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.equipment__brand {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
+}
+
+.equipment__desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .equipment__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .equipment__container { padding: 0 40px; }
+}
+
+@media (max-width: 768px) {
+  .equipment { padding: 80px 0; }
+  .equipment__container { padding: 0 24px; }
+  .equipment__grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+}
+
+@media (max-width: 480px) {
+  .equipment__grid { grid-template-columns: 1fr; }
+  .equipment__card { aspect-ratio: 16/10; }
+}

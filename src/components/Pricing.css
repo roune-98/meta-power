@@ -1,0 +1,274 @@
+.pricing {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background: #0B0B0B;
+}
+
+.pricing__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.04) 0%, transparent 60%);
+}
+
+.pricing__glow {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(255,215,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pricing__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+
+/* Cards grid */
+.pricing__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Card base */
+.pricing__card {
+  position: relative;
+  padding: 40px 32px;
+  border-radius: 16px;
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.pricing__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pricing__card:hover::before { opacity: 1; }
+
+/* Basic card */
+.pricing__card--basic:hover {
+  border-color: rgba(255, 215, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(255,215,0,0.05);
+}
+
+/* Popular card */
+.pricing__card--popular {
+  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(20, 18, 12, 0.95);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.1), 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.pricing__card--popular::before { opacity: 1; background: linear-gradient(90deg, transparent, #FFD700, transparent); }
+
+.pricing__card--popular:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.2), 0 24px 80px rgba(0,0,0,0.6);
+}
+
+/* Premium card */
+.pricing__card--premium {
+  border-color: rgba(229, 9, 20, 0.2);
+}
+
+.pricing__card--premium:hover {
+  border-color: rgba(229, 9, 20, 0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(229,9,20,0.1);
+}
+
+/* Badge */
+.pricing__badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.pricing__badge--popular {
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  color: #0B0B0B;
+}
+
+.pricing__badge--premium {
+  background: linear-gradient(135deg, #E50914, #a0060f);
+  color: #fff;
+}
+
+/* Icon */
+.pricing__icon {
+  font-size: 36px;
+  filter: drop-shadow(0 0 12px rgba(255,215,0,0.3));
+}
+
+/* Name */
+.pricing__name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+}
+
+/* Price */
+.pricing__price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pricing__price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(36px, 4vw, 50px);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.pricing__card--basic .pricing__price { color: #B3B3B3; }
+.pricing__card--popular .pricing__price {
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(255,215,0,0.4));
+}
+.pricing__card--premium .pricing__price { color: #E50914; }
+
+.pricing__unit {
+  font-size: 13px;
+  color: #B3B3B3;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Divider */
+.pricing__divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.15), transparent);
+  margin: 4px 0;
+}
+
+/* Features */
+.pricing__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.pricing__feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #B3B3B3;
+  font-weight: 400;
+}
+
+.pricing__feature-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pricing__card--basic .pricing__feature-check {
+  background: rgba(255,215,0,0.1);
+  color: #FFD700;
+}
+
+.pricing__card--popular .pricing__feature-check {
+  background: rgba(255,215,0,0.2);
+  color: #FFD700;
+}
+
+.pricing__card--premium .pricing__feature-check {
+  background: rgba(229,9,20,0.15);
+  color: #E50914;
+}
+
+/* CTA */
+.pricing__cta {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18px;
+  letter-spacing: 3px;
+  cursor: none;
+  margin-top: 8px;
+  transition: all 0.3s;
+}
+
+.pricing__cta--basic {
+  background: transparent;
+  border: 1.5px solid rgba(255,215,0,0.3);
+  color: #FFD700;
+}
+
+.pricing__cta--basic:hover {
+  background: rgba(255,215,0,0.1);
+  border-color: #FFD700;
+}
+
+.pricing__cta--popular {
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  color: #0B0B0B;
+  box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+}
+
+.pricing__cta--popular:hover {
+  box-shadow: 0 8px 30px rgba(255,215,0,0.5);
+}
+
+.pricing__cta--premium {
+  background: linear-gradient(135deg, #E50914, #a0060f);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(229,9,20,0.3);
+}
+
+.pricing__cta--premium:hover {
+  box-shadow: 0 8px 30px rgba(229,9,20,0.5);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pricing__container { padding: 0 40px; }
+  .pricing__cards { gap: 16px; }
+}
+
+@media (max-width: 768px) {
+  .pricing { padding: 80px 0; }
+  .pricing__container { padding: 0 24px; }
+  .pricing__cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}

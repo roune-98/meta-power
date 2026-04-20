@@ -1,0 +1,205 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+}
+
+.navbar--solid {
+  background: rgba(11, 11, 11, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 215, 0, 0.1);
+}
+
+.navbar__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 80px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  cursor: none;
+  flex-shrink: 0;
+}
+
+.logo__meta {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #B3B3B3;
+}
+
+.logo__power {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+.logo__gym {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #E50914;
+}
+
+/* Links */
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__link {
+  position: relative;
+  background: none;
+  border: none;
+  color: #B3B3B3;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: none;
+  transition: color 0.3s;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #FFD700;
+}
+
+.navbar__link-line {
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: linear-gradient(90deg, #FFD700, #C9A200);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.navbar__link:hover .navbar__link-line,
+.navbar__link--active .navbar__link-line {
+  transform: scaleX(1);
+}
+
+/* CTA Button */
+.navbar__cta {
+  background: linear-gradient(135deg, #E50914, #b00710);
+  border: none;
+  color: #fff;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: none;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.navbar__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.navbar__cta:hover {
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.6), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.navbar__cta:hover::after { opacity: 1; }
+
+/* Burger */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: none;
+  margin-left: auto;
+}
+
+.navbar__burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #FFD700;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.navbar__burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__burger--open span:nth-child(2) { opacity: 0; }
+.navbar__burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile Menu */
+.navbar__mobile {
+  background: rgba(11, 11, 11, 0.98);
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.navbar__mobile-link {
+  background: none;
+  border: none;
+  color: #B3B3B3;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 0;
+  cursor: none;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.06);
+  transition: color 0.3s;
+}
+
+.navbar__mobile-link:hover { color: #FFD700; }
+
+.navbar__cta--mobile {
+  margin-top: 20px;
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .navbar__inner { padding: 14px 40px; }
+}
+
+@media (max-width: 768px) {
+  .navbar__links, .navbar__cta:not(.navbar__cta--mobile) { display: none; }
+  .navbar__burger { display: flex; }
+  .navbar__inner { padding: 14px 24px; gap: 0; }
+}

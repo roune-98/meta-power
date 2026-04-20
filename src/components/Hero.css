@@ -1,0 +1,225 @@
+/* ===================================================
+   HERO — ULTRA PRO
+   =================================================== */
+
+@keyframes fadeUp    { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shimmer   { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes badgePing { 0%,100%{box-shadow:0 0 0 0 rgba(229,9,20,.8)} 60%{box-shadow:0 0 0 8px rgba(229,9,20,0)} }
+@keyframes scrollDot { 0%{top:6px;opacity:1} 100%{top:22px;opacity:0} }
+@keyframes streakMove{ 0%{transform:translateX(-100%) rotate(25deg);opacity:0} 40%{opacity:.6} 100%{transform:translateX(200vw) rotate(25deg);opacity:0} }
+
+.fade-up-1{opacity:0;animation:fadeUp .7s ease both;animation-delay:.05s}
+.fade-up-2{opacity:0;animation:fadeUp .7s ease both;animation-delay:.2s}
+.fade-up-3{opacity:0;animation:fadeUp .7s ease both;animation-delay:.35s}
+.fade-up-4{opacity:0;animation:fadeUp .7s ease both;animation-delay:.5s}
+.fade-up-5{opacity:0;animation:fadeUp .7s ease both;animation-delay:.65s}
+
+/* ── Section ── */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:#080808;
+}
+
+/* Real background image (athlete in gym) */
+.hero__img{
+  position:absolute;inset:0;z-index:1;
+  background-image:url('/img/META7.webp');
+  background-size:cover;
+  background-position:center 20%;
+  opacity:.35;
+}
+
+/* Dark cinematic overlay */
+.hero__overlay-dark{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to right,rgba(8,8,8,.97) 0%,rgba(8,8,8,.7) 50%,rgba(8,8,8,.2) 100%);
+}
+.hero__overlay-left{
+  position:absolute;bottom:0;left:0;right:0;height:300px;z-index:3;
+  background:linear-gradient(to top,#080808,transparent);
+}
+
+/* Particles canvas */
+.hero__canvas{
+  position:absolute;inset:0;z-index:3;pointer-events:none;
+}
+
+/* Light streaks */
+.hero__light-streak{
+  position:absolute;z-index:4;pointer-events:none;
+  width:3px;height:180px;
+  background:linear-gradient(to bottom,transparent,rgba(255,215,0,.6),transparent);
+  animation:streakMove 6s ease-in-out infinite;
+  transform-origin:center;
+}
+.hero__light-streak--1{top:20%;left:-10%;animation-delay:0s;}
+.hero__light-streak--2{top:50%;left:-10%;animation-delay:3s;opacity:.5;}
+
+/* ── Content ── */
+.hero__content{
+  position:relative;z-index:10;
+  max-width:1440px;width:100%;margin:0 auto;
+  padding:130px 80px 80px;
+  display:flex;flex-direction:column;
+  gap:28px;align-items:flex-start;
+  max-width:55%;
+}
+
+/* Badge */
+.hero__badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(229,9,20,.12);
+  border:1px solid rgba(229,9,20,.4);
+  padding:8px 20px;border-radius:100px;
+  font-family:'Poppins',sans-serif;font-size:11px;
+  font-weight:700;letter-spacing:3.5px;color:#ff5560;
+  text-transform:uppercase;
+}
+.hero__badge-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#E50914;flex-shrink:0;
+  animation:badgePing 1.6s ease-in-out infinite;
+}
+
+/* Title */
+.hero__title-wrap{}
+.hero__title{
+  margin:0;display:flex;flex-direction:column;
+  line-height:.85;gap:0;
+}
+.t-white,.t-gold,.t-stroke{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(70px,11.5vw,160px);
+  letter-spacing:3px;display:block;
+}
+.t-white{color:#fff;}
+.t-gold{
+  background:linear-gradient(135deg,#FFD700 0%,#C9A200 45%,#FFE55C 70%,#C9A200 100%);
+  background-size:200% 200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmer 3s linear infinite;
+  filter:drop-shadow(0 0 30px rgba(255,215,0,.5));
+}
+.t-stroke{
+  color:transparent;
+  -webkit-text-stroke:2px rgba(255,255,255,.2);
+}
+
+/* Subtitle */
+.hero__sub{
+  font-size:clamp(15px,1.7vw,19px);
+  color:#9a9a9a;font-weight:300;
+  letter-spacing:1.5px;max-width:450px;margin:0;
+}
+.gold-txt{color:#FFD700;font-weight:600;}
+
+/* Buttons */
+.hero__btns{display:flex;gap:16px;flex-wrap:wrap;}
+.cta-red{
+  font-family:'Bebas Neue',cursive;font-size:17px;
+  letter-spacing:3px;padding:16px 38px;
+  border-radius:4px;border:none;
+  background:linear-gradient(135deg,#E50914,#9b0610);
+  color:#fff;cursor:pointer;
+  box-shadow:0 4px 24px rgba(229,9,20,.35);
+  transition:transform .22s,box-shadow .22s;
+}
+.cta-red:hover{transform:scale(1.06);box-shadow:0 0 32px rgba(229,9,20,.65);}
+.cta-outline{
+  font-family:'Bebas Neue',cursive;font-size:17px;
+  letter-spacing:3px;padding:16px 38px;
+  border-radius:4px;
+  background:transparent;color:#FFD700;
+  border:1.5px solid rgba(255,215,0,.5);
+  cursor:pointer;
+  transition:background .2s,transform .2s,border-color .2s;
+}
+.cta-outline:hover{background:rgba(255,215,0,.1);border-color:#FFD700;transform:scale(1.04);}
+
+/* Stats */
+.hero__stats{
+  display:flex;align-items:center;gap:0;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,215,0,.12);
+  border-radius:12px;overflow:hidden;
+  backdrop-filter:none;
+}
+.hero__stat{
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 36px;gap:3px;
+}
+.hero__stat-divider{width:1px;height:40px;background:rgba(255,215,0,.1);}
+.s-num{
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(26px,3vw,42px);
+  letter-spacing:2px;color:#FFD700;line-height:1;
+}
+.s-plus{font-size:.65em;color:#C9A200;}
+.s-lbl{font-size:10px;color:#666;letter-spacing:2.5px;text-transform:uppercase;}
+
+/* Right: athlete frame */
+.hero__athlete-frame{
+  position:absolute;right:0;top:0;bottom:0;
+  width:48%;z-index:5;
+  overflow:hidden;
+}
+.hero__athlete-img{
+  position:absolute;inset:0;
+  background-image:url('/img/Meta2.webp');
+  background-size:cover;background-position:top center;
+  mask-image:linear-gradient(to left,rgba(0,0,0,.9) 30%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to left,rgba(0,0,0,.9) 30%,transparent 100%);
+  opacity:.55;
+}
+.hero__athlete-glow{
+  position:absolute;bottom:0;left:0;right:0;height:60%;
+  background:linear-gradient(to top,#E50914 0%,transparent 100%);
+  opacity:.06;
+}
+.hero__athlete-badge{
+  position:absolute;bottom:80px;left:40px;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,215,0,.1);
+  border:1px solid rgba(255,215,0,.3);
+  padding:10px 20px;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-size:11px;
+  font-weight:700;letter-spacing:3px;color:#FFD700;
+  text-transform:uppercase;
+}
+
+/* Scroll indicator */
+.hero__scroll{
+  position:absolute;bottom:32px;left:50%;
+  transform:translateX(-50%);z-index:10;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-family:'Poppins',sans-serif;font-size:9px;
+  letter-spacing:4px;color:#444;text-transform:uppercase;
+}
+.hero__scroll-track{
+  width:20px;height:34px;border:1.5px solid rgba(255,215,0,.25);
+  border-radius:12px;position:relative;overflow:hidden;
+}
+.hero__scroll-dot{
+  position:absolute;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;
+  background:#FFD700;animation:scrollDot 1.6s ease-in-out infinite;
+}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .hero__content{padding:100px 40px 80px;max-width:65%;}
+  .hero__athlete-frame{width:40%;}
+}
+@media(max-width:768px){
+  .hero__content{padding:100px 20px 60px;max-width:100%;align-items:center;text-align:center;}
+  .hero__athlete-frame{display:none;}
+  .hero__btns{justify-content:center;}
+  .hero__stats{flex-wrap:wrap;}
+  .hero__sub{max-width:100%;}
+  .hero__title{align-items:center;}
+}

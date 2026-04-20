@@ -1,0 +1,161 @@
+.services {
+  padding: 120px 0;
+  background: #0B0B0B;
+  overflow: hidden;
+}
+
+.services__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.service__card {
+  position: relative;
+  padding: 32px 28px;
+  border-radius: 12px;
+  background: rgba(18, 18, 18, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: none;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.service__card--gold {
+  border: 1px solid rgba(255, 215, 0, 0.08);
+}
+
+.service__card--gold:hover {
+  border-color: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.08);
+}
+
+.service__card--red {
+  border: 1px solid rgba(229, 9, 20, 0.08);
+}
+
+.service__card--red:hover {
+  border-color: rgba(229, 9, 20, 0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(229,9,20,0.08);
+}
+
+/* Glow layer */
+.service__card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.service__card--gold:hover .service__card-glow {
+  opacity: 1;
+  background: radial-gradient(ellipse at 30% 30%, rgba(255,215,0,0.05) 0%, transparent 60%);
+}
+
+.service__card--red:hover .service__card-glow {
+  opacity: 1;
+  background: radial-gradient(ellipse at 30% 30%, rgba(229,9,20,0.05) 0%, transparent 60%);
+}
+
+/* Icon */
+.service__icon {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.service__card:hover .service__icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.service__icon--gold {
+  background: rgba(255, 215, 0, 0.1);
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.3));
+}
+
+.service__icon--red {
+  background: rgba(229, 9, 20, 0.1);
+  filter: drop-shadow(0 0 10px rgba(229,9,20,0.3));
+}
+
+/* Name */
+.service__name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+}
+
+/* Description */
+.service__desc {
+  font-size: 13px;
+  color: #B3B3B3;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Bottom line */
+.service__line {
+  height: 2px;
+  width: 40px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.service__card:hover .service__line { width: 70px; }
+
+.service__line--gold {
+  background: linear-gradient(90deg, #FFD700, #C9A200);
+}
+
+.service__line--red {
+  background: linear-gradient(90deg, #E50914, #a0060f);
+}
+
+/* Arrow */
+.service__arrow {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-size: 20px;
+  color: #FFD700;
+}
+
+.service__card--red .service__arrow { color: #E50914; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .services__container { padding: 0 40px; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .services { padding: 80px 0; }
+  .services__container { padding: 0 24px; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .service__card { padding: 24px 20px; }
+}
+
+@media (max-width: 480px) {
+  .services__grid { grid-template-columns: 1fr; }
+}

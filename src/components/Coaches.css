@@ -1,0 +1,285 @@
+.coaches {
+  position: relative;
+  padding: 120px 0;
+  background: #0B0B0B;
+  overflow: hidden;
+}
+
+.coaches__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,215,0,0.04) 0%, transparent 60%);
+}
+
+.coaches__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.coaches__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Card */
+.coach__card {
+  position: relative;
+  padding: 44px 32px 32px;
+  border-radius: 20px;
+  background: rgba(18, 18, 18, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: none;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.coach__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  transition: width 0.4s;
+}
+
+.coach__card--gold {
+  border: 1px solid rgba(255,215,0,0.12);
+}
+
+.coach__card--gold::before {
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+}
+
+.coach__card--red {
+  border: 1px solid rgba(229,9,20,0.12);
+}
+
+.coach__card--red::before {
+  background: linear-gradient(90deg, transparent, #E50914, transparent);
+}
+
+.coach__card:hover {
+  transform: translateY(-8px);
+}
+
+.coach__card--gold:hover {
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 40px rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.25);
+}
+
+.coach__card--red:hover {
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 40px rgba(229,9,20,0.1);
+  border-color: rgba(229,9,20,0.25);
+}
+
+.coach__card:hover::before { width: 80%; }
+
+/* Avatar */
+.coach__avatar {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+}
+
+.coach__avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(11, 11, 11, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.coach__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Rings */
+.coach__ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: ringRotate 4s linear infinite;
+}
+
+.coach__ring--2 {
+  inset: -10px;
+  border-width: 1px;
+  animation-direction: reverse;
+  animation-duration: 6s;
+  opacity: 0.5;
+}
+
+.coach__ring--gold {
+  border-color: #FFD700 transparent transparent transparent;
+  box-shadow: 0 0 16px rgba(255,215,0,0.2);
+}
+
+.coach__ring--red {
+  border-color: #E50914 transparent transparent transparent;
+  box-shadow: 0 0 16px rgba(229,9,20,0.2);
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Info */
+.coach__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.coach__name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: #FFFFFF;
+}
+
+.coach__role {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.coach__role--gold { color: #C9A200; }
+.coach__role--red { color: #E50914; }
+
+.coach__stars {
+  font-size: 14px;
+  color: #FFD700;
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+}
+
+.coach__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #B3B3B3;
+}
+
+.coach__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.coach__meta-icon { font-size: 12px; }
+.coach__meta-divider { color: rgba(255,215,0,0.3); }
+
+/* Hover Overlay */
+.coach__overlay {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.coach__overlay--gold {
+  background: rgba(11, 10, 5, 0.96);
+  border: 1px solid rgba(255,215,0,0.2);
+}
+
+.coach__overlay--red {
+  background: rgba(11, 5, 5, 0.96);
+  border: 1px solid rgba(229,9,20,0.2);
+}
+
+.coach__bio {
+  font-size: 13px;
+  color: #B3B3B3;
+  line-height: 1.7;
+}
+
+.coach__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.coach__cert {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.coach__cert--gold {
+  background: rgba(255,215,0,0.1);
+  border: 1px solid rgba(255,215,0,0.25);
+  color: #C9A200;
+}
+
+.coach__cert--red {
+  background: rgba(229,9,20,0.1);
+  border: 1px solid rgba(229,9,20,0.25);
+  color: #E50914;
+}
+
+.coach__cta {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  letter-spacing: 3px;
+  cursor: none;
+  transition: all 0.3s;
+  margin-top: 4px;
+}
+
+.coach__cta--gold {
+  background: linear-gradient(135deg, #FFD700, #C9A200);
+  color: #0B0B0B;
+}
+
+.coach__cta--red {
+  background: linear-gradient(135deg, #E50914, #a0060f);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .coaches__container { padding: 0 40px; }
+  .coaches__grid { gap: 20px; }
+}
+
+@media (max-width: 768px) {
+  .coaches { padding: 80px 0; }
+  .coaches__container { padding: 0 24px; }
+  .coaches__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}

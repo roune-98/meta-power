@@ -1,0 +1,98 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0B0B0B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: all;
+}
+
+.loader--fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+}
+
+.loader__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.loader__meta {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(40px, 8vw, 80px);
+  color: #B3B3B3;
+  letter-spacing: 12px;
+}
+
+.loader__power {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(60px, 14vw, 140px);
+  background: linear-gradient(135deg, #FFD700, #C9A200, #FFD700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 2s linear infinite;
+  letter-spacing: 8px;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+.loader__gym {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(20px, 4vw, 40px);
+  color: #E50914;
+  letter-spacing: 18px;
+}
+
+.loader__bar-wrap {
+  width: 240px;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #E50914);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+}
+
+.loader__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: #B3B3B3;
+  text-transform: uppercase;
+}
+
+.loader__ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  pointer-events: none;
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
